@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OrdersTableViewController: UITableViewController {
+class OrdersTableViewController: UITableViewController,addCoffeeDelegate {
 
     var orderListViewModel = OrderListViewModel()
     
@@ -28,6 +28,17 @@ class OrdersTableViewController: UITableViewController {
         }
     }
 
+    func saveNewOrder(order: Order) {
+        let orderVM = OrderViewModel(order: order)
+        orderListViewModel.ordersViewModel.append(orderVM)
+        tableView.reloadData()
+    }
+    
+    @IBAction func addOrderBtn(){
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "vc") as? AddOrderViewController{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

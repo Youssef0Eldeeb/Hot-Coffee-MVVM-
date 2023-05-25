@@ -50,7 +50,7 @@
                     <navigationItem key="navigationItem" title="Orders" id="905-NW-Y9K">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xwf-TF-5GQ">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="push" id="qn5-i9-TOa"/>
+                                <action selector="addOrderBtn" destination="DmS-2A-uBa" id="EOS-Od-kiE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -62,7 +62,7 @@
         <!--Add New Order-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AddOrderViewController" customModule="Hot_Coffee__MVVM_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc" id="BYZ-38-t0r" customClass="AddOrderViewController" customModule="Hot_Coffee__MVVM_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -163,12 +163,9 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kzU-6w-RAb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="0.0"/>
+            <point key="canvasLocation" x="1398" y="20"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="qn5-i9-TOa"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

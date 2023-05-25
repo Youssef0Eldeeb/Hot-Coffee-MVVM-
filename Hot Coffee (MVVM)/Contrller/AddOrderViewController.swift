@@ -7,6 +7,12 @@
 
 import UIKit
 
+
+protocol addCoffeeDelegate{
+    func saveNewOrder(order: Order)
+}
+
+
 class AddOrderViewController: UIViewController{
 
     @IBOutlet weak var tableView: UITableView!
@@ -15,6 +21,8 @@ class AddOrderViewController: UIViewController{
     
     private var segmintedControl: UISegmentedControl!
     private var addOrderViewModel = AddOrderViewModel()
+    
+    var delegate: addCoffeeDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +41,7 @@ class AddOrderViewController: UIViewController{
     }
     
     @IBAction func saveBtn(){
+
         let name = nameTextField.text ?? ""
         let email = emailTextFiels.text ?? ""
  
@@ -50,11 +59,17 @@ class AddOrderViewController: UIViewController{
         WebService.shared.load(resouce: resource) { result in
             switch result{
             case .success(let order):
-                print(order)
+                if let order = order, let delegate = self.delegate{
+                    DispatchQueue.main.async {
+                        delegate.saveNewOrder(order: order)
+                    }
+                }
             case .failure(let error):
                 print(error)
             }
         }
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
 
