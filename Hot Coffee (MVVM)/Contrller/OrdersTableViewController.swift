@@ -16,11 +16,8 @@ class OrdersTableViewController: UITableViewController {
         populateOrders()
     }
     private func populateOrders(){
-        guard let url = URL(string: "https://warp-wiry-rugby.glitch.me/orders") else{
-            fatalError("URL is incorrect")
-        }
-        let resource = Resource<[Order]>(url: url)
-        WebService.shared.load(resouce: resource) { [weak self] result in
+
+        WebService.shared.load(resouce: Order.getAll) { [weak self] result in
             switch result{
             case .success(let orders):
                 self?.orderListViewModel.ordersViewModel = orders.map(OrderViewModel.init)

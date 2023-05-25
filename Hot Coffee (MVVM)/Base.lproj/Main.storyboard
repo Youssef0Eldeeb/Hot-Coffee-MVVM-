@@ -50,7 +50,7 @@
                     <navigationItem key="navigationItem" title="Orders" id="905-NW-Y9K">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xwf-TF-5GQ">
                             <connections>
-                                <segue destination="fVW-HT-AL6" kind="push" id="ELo-Mu-PVs"/>
+                                <segue destination="BYZ-38-t0r" kind="push" id="qn5-i9-TOa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -70,15 +70,17 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IJW-9L-l9t">
                                 <rect key="frame" x="0.0" y="103" width="393" height="426"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="aCell" id="fdM-UJ-QM5">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fdM-UJ-QM5" id="hYT-I5-Zib">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8rv-ci-4Sy">
-                                <rect key="frame" x="93.666666666666686" y="559" width="206" height="32"/>
-                                <segments>
-                                    <segment title="Small"/>
-                                    <segment title="Madium"/>
-                                    <segment title="Large"/>
-                                </segments>
-                            </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BFa-x0-rSf">
                                 <rect key="frame" x="96.666666666666686" y="650" width="200" height="78"/>
                                 <subviews>
@@ -101,17 +103,26 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8rv-ci-4Sy" firstAttribute="top" secondItem="IJW-9L-l9t" secondAttribute="bottom" constant="30" id="2Bf-5q-dWg"/>
                             <constraint firstItem="IJW-9L-l9t" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="4He-Df-PoZ"/>
                             <constraint firstItem="IJW-9L-l9t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="53X-MU-cx1"/>
                             <constraint firstItem="IJW-9L-l9t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MVl-CZ-Trp"/>
-                            <constraint firstItem="8rv-ci-4Sy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QZ1-6h-g79"/>
+                            <constraint firstItem="BFa-x0-rSf" firstAttribute="top" secondItem="IJW-9L-l9t" secondAttribute="bottom" constant="121" id="QBm-6d-ga8"/>
                             <constraint firstItem="BFa-x0-rSf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ahg-Ly-Lq3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IJW-9L-l9t" secondAttribute="trailing" id="nI4-Qx-67W"/>
-                            <constraint firstItem="BFa-x0-rSf" firstAttribute="top" secondItem="8rv-ci-4Sy" secondAttribute="bottom" constant="60" id="ueT-yr-Jwe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add New Order" id="dTX-zW-9JN"/>
+                    <navigationItem key="navigationItem" title="Add New Order" id="dTX-zW-9JN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="WVx-XJ-hPh">
+                            <connections>
+                                <action selector="saveBtn" destination="BYZ-38-t0r" id="1Hf-rQ-lTl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailTextFiels" destination="PIq-OC-L5B" id="2yT-1W-Oer"/>
+                        <outlet property="nameTextField" destination="CKd-Qn-ZqJ" id="jyT-KN-sjY"/>
+                        <outlet property="tableView" destination="IJW-9L-l9t" id="Ped-qu-v4g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -155,6 +166,9 @@
             <point key="canvasLocation" x="1479" y="0.0"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="qn5-i9-TOa"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
